@@ -40,12 +40,7 @@ bot = commands.Bot(command_prefix="!", intents=intents)
 async def on_ready():
     logger.info(f"✅ Bot is online as {bot.user} (ID: {bot.user.id})")
     logger.info(f"👀 Watching for roles: {config['kick_roles']}")
-    await bot.change_presence(
-        activity=discord.Activity(
-            type=discord.ActivityType.watching,
-            name="for restricted roles"
-        )
-    )
+    await bot.change_presence(activity=None)
 
 
 @bot.event
