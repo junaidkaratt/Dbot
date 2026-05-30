@@ -7,20 +7,19 @@ from datetime import datetime
 from keep_alive import keep_alive
 
 # Setup logging
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s [%(levelname)s] %(message)s",
-    handlers=[
-        logging.FileHandler("bot.log"),
-        logging.StreamHandler()
-    ]
-)
-logger = logging.getLogger(__name__)
+# logging.basicConfig(
+#     level=logging.INFO,
+#     format="%(asctime)s [%(levelname)s] %(message)s",
+#     handlers=[
+#         logging.FileHandler("bot.log"),
+#         logging.StreamHandler()
+#     ]
+# )
+# logger = logging.getLogger(__name__)
 
 # Load config
 with open("config.json", "r") as f:
     config = json.load(f)
-    
 for key, value in config.items():
     if isinstance(value, str) and value.startswith("${") and value.endswith("}"):
         env_name = value[2:-1]
