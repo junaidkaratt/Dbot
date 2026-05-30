@@ -1,0 +1,8 @@
+{
+  "bot_token": "YOUR_BOT_TOKEN_HERE",
+  "kick_roles": [
+    "Small"
+  ],
+  "kick_reason": "You were assigned a restricted role and have been removed from the server.",
+  "log_channel_id": null
+}
