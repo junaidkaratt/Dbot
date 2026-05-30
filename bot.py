@@ -20,6 +20,11 @@ logger = logging.getLogger(__name__)
 # Load config
 with open("config.json", "r") as f:
     config = json.load(f)
+    
+for key, value in config.items():
+    if isinstance(value, str) and value.startswith("${") and value.endswith("}"):
+        env_name = value[2:-1]
+        config[key] = os.environ.get(env_name)
 
 BOT_TOKEN = config["bot_token"]
 KICK_ROLES = [role.lower() for role in config["kick_roles"]]  # Role names to watch
