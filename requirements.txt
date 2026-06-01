@@ -3,6 +3,6 @@ flask>=3.0.0
 httpx>=0.27.0              # used by all openai_compat providers
  
 # Uncomment only what you use:
-google-generativeai>=0.7.0   
+google-genai>=1.0.0   
 cohere>=5.0.0               
 # All other providers use httpx (already included above)

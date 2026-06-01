@@ -80,12 +80,11 @@ async def call_provider(provider: dict, text: str) -> dict | None:
                 response.raise_for_status()
                 raw = response.json()["choices"][0]["message"]["content"]
 
-        # ── Gemini (uses its own SDK) ──
+        # ── Gemini (uses new google-genai SDK) ──
         elif call["type"] == "gemini":
-            import google.generativeai as genai
-            genai.configure(api_key=api_key)
-            model = genai.GenerativeModel(call["model"])
-            resp = model.generate_content(prompt)
+            from google import genai
+            client = genai.Client(api_key=api_key)
+            resp = client.models.generate_content(model=call["model"], contents=prompt)
             raw = resp.text
 
         # ── Cohere (uses its own SDK) ──
