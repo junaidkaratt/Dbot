@@ -121,16 +121,16 @@ async def call_provider(provider: dict, text: str) -> dict | None:
 
 PROVIDERS = [
     {
-        "name": "Gemini",
+        "name": "Groq",
         "priority": 1,
-        "env_key": "GEMINI_API_KEY",
-        "call": {"type": "gemini", "model": "gemini-2.0-flash"},
+        "env_key": "GROQ_API_KEY",
+        "call": {"type": "openai_compat", "base_url": "https://api.groq.com/openai/v1", "model": "llama-3.1-8b-instant"},
     },
     {
-        "name": "Groq",
+        "name": "Gemini",
         "priority": 2,
-        "env_key": "GROQ_API_KEY",
-        "call": {"type": "openai_compat", "base_url": "https://api.groq.com/openai/v1", "model": "llama3-8b-8192"},
+        "env_key": "GEMINI_API_KEY",
+        "call": {"type": "gemini", "model": "gemini-2.0-flash"},
     },
     {
         "name": "OpenRouter",
