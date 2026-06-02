@@ -61,7 +61,7 @@ async def on_message(message: discord.Message):
 
             if result is None:
                 await message.reply(
-                    "❌ All grammar providers are currently unavailable or rate-limited. "
+                    "❌ I'm too expensive for you guys. "
                     "Please try again later."
                 )
                 return
