@@ -130,7 +130,7 @@ PROVIDERS = [
         "name": "Gemini",
         "priority": 2,
         "env_key": "GEMINI_API_KEY",
-        "call": {"type": "gemini", "model": "gemini-2.0-flash"},
+        "call": {"type": "gemini", "model": "gemini-3.1-flash-lite"},
     },
     {
         "name": "OpenRouter",
