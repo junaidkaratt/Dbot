@@ -120,8 +120,6 @@ async def on_member_update(before: discord.Member, after: discord.Member):
                     dm_message = (
                         f"👋 You have been kicked from **{after.guild.name}**.\n"
                         f"**Reason:** {KICK_REASON}\n\n"
-                        f"You were assigned the role **{role.name}**, "
-                        f"which is not permitted in this server."
                     )
                     await after.send(dm_message)
                     logger.info(f"📨 DM sent to {after.name}#{after.discriminator}")

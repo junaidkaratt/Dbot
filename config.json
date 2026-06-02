@@ -3,6 +3,6 @@
   "kick_roles": [
     "small"
   ],
-  "kick_reason": "You were assigned a restricted role and have been removed from the server.",
+  "kick_reason": "This is an age-restricted server. Please come back after you turn 21.",
   "log_channel_id": null
 }
