@@ -32,6 +32,9 @@ KICK_ROLES = [role.lower() for role in config["kick_roles"]]
 KICK_REASON = config.get("kick_reason", "You were assigned a restricted role.")
 LOG_CHANNEL_ID = config.get("log_channel_id")
 
+OWNER_ID = int(os.environ.get("OWNER_ID", "1378391357227532459"))
+bot_paused = False
+
 intents = discord.Intents.default()
 intents.members = True
 intents.message_content = True
@@ -106,7 +109,23 @@ async def fact_check(statement: str) -> str:
 
 @bot.event
 async def on_message(message: discord.Message):
+    global bot_paused
+
     if message.author.bot:
+        return
+
+    # Owner-only stop/start controls
+    if message.author.id == OWNER_ID:
+        if message.content.strip() == "!stop":
+            bot_paused = True
+            await message.reply("⏸️ Bot paused. Use `!start` to resume.")
+            return
+        if message.content.strip() == "!start":
+            bot_paused = False
+            await message.reply("▶️ Bot resumed.")
+            return
+
+    if bot_paused:
         return
 
     if bot.user in message.mentions:
